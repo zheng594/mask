@@ -7,7 +7,7 @@
 ``` 
  <dependency>
 	 <groupId>com.data</groupId>
-     <artifactId>mask</artifactId>
+         <artifactId>mask</artifactId>
 	 <version>1.0-SNAPSHOT</version>
  </dependency>
 ```
