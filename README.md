@@ -1,9 +1,9 @@
-#描述：
-####一个文本内容脱敏的包
-#使用：
-####1、下载项目后执行：mvn clean package -Dmaven.test.skip=true
-####2、将jar上传到本地：mvn install
-####3、pom中引入：
+# 描述：
+#### 一个文本内容脱敏的包
+# 使用：
+#### 1、下载项目后执行：mvn clean package -Dmaven.test.skip=true
+#### 2、将jar上传到本地：mvn install
+#### 3、pom中引入：
 ``` 
  <dependency>
 	 <groupId>com.data</groupId>
@@ -11,7 +11,7 @@
 	 <version>1.0-SNAPSHOT</version>
  </dependency>
 ```
-####3、代码示例
+#### 3、代码示例
 ```
 public class Test {
     public static void main(String[] args) {
