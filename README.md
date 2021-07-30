@@ -1,5 +1,5 @@
 # 描述：
-#### 一个文本内容脱敏的包
+#### 一个文本内容脱敏的包,默认支持脱敏类型：邮箱、座机号、IP、IMEI、MAC地址、手机号、身份证、车牌号、银行卡
 # 使用：
 #### 1、下载项目后执行：mvn clean package -Dmaven.test.skip=true
 #### 2、将jar上传到本地：mvn install
