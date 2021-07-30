@@ -21,7 +21,8 @@ public class Test {
         //Result:158****3842 622188******4166800 错误的银行卡：zheng_***t@163.c** 33062*******12004x zhda，浙A***00
         System.out.println(masking.getMaskValue(content));
 
-        masking.setWithouts(new String[]{"邮箱", "手机号"});//不需要脱敏的数据类型
+        //不需要脱敏的数据类型，可以设置的值：邮箱、座机号、IP、IMEI、MAC地址、手机号、身份证、车牌号、银行卡
+        masking.setWithouts(new String[]{"邮箱", "手机号"});
         //Result：15882183842 421b59d0708e60a450f7eca18928ba0a078641dc 错误的银行卡：zheng_test@163.com 22c5ce09c551817e0f928b0d356733b54573dd65 zhda，ae3f590f46029f513e897b0bfa40e04ad8a604d1
         System.out.println(masking.getMaskValue(1, content));
 
