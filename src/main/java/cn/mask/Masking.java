@@ -9,9 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.Serializable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -20,7 +18,7 @@ import java.util.regex.Pattern;
  * Created by zheng on 2021-07-01
  */
 public class Masking implements Serializable {
-    public static List<MaskRule> ruleList = new ArrayList<>();
+    public static CopyOnWriteArraySet<MaskRule> ruleList = new CopyOnWriteArraySet<>();
     private String[] withouts; //不需要脱敏的类型
     private String prefix; //脱敏后内容前缀,诸如数据hash脱敏后，用户可能不知道数据本来就是这样还是脱敏后如此
     private Integer timeout; //正则匹配产生回溯问题时的超时时间
@@ -61,7 +59,10 @@ public class Masking implements Serializable {
         }
 
         String[] contentArr = content.split("-|_|#|;|,|；|，| |。|：|'|\"|“|”|’|‘|\\{|\\}|\\[|\\]|\\(|\\)|（|）|<|>|\\||=");
-        List<String> withoutList = withouts == null ? new ArrayList<>() : Arrays.asList(withouts);
+        CopyOnWriteArraySet<String> withoutList = new CopyOnWriteArraySet();
+        if (withouts != null) {
+            withoutList.addAll(Arrays.asList(withouts));
+        }
 
         for (MaskRule rule : ruleList) {
             if (CollectionUtils.isNotEmpty(withoutList) && withoutList.contains(rule.getDataName())) {
